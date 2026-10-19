@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista HYPER - Rappresentanza Studentesca</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter e Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        hyper: {
+                            purple: '#7c3aed',
+                            pink: '#ec4899',
+                            cyan: '#06b6d4',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-hyper {
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="font-heading text-3xl font-black tracking-wider text-gradient">HYPER</span>
+                <span class="text-xs uppercase bg-purple-900/60 text-purple-300 font-bold px-2.5 py-1 rounded-full border border-purple-500/30">Lista 1</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+                <a href="#countdown" class="hover:text-pink-400 transition-colors">Votazioni</a>
+                <a href="#programma" class="hover:text-pink-400 transition-colors">Eventi & Programma</a>
+                <a href="#suggerisci" class="hover:text-pink-400 transition-colors">Invia Proposta</a>
+                <a href="#qrcode" class="hover:text-pink-400 transition-colors">Condividi QR</a>
+            </nav>
+
+            <a href="#suggerisci" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-bold bg-gradient-hyper text-white shadow-lg hover:opacity-90 transition-all">
+                Cosa vorresti? <i class="fa-solid fa-paper-plane ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <!-- Background Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 w-80 h-80 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-full mb-6">
+                <span class="animate-pulse flex h-2 w-2 rounded-full bg-pink-500"></span>
+                <span class="text-xs sm:text-sm font-medium text-slate-300">Campagna Elettorale • Leonardo Cesari & Sara Giamberardino</span>
+            </div>
+            
+            <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-black tracking-tight mb-6">
+                PORTA LA SCUOLA AL <br>
+                <span class="text-gradient">LIVELLO HYPER</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+                Più eventi, vera partecipazione e una scuola a misura di studente. Vota la lista che fa la differenza: **Leonardo Cesari** e **Sara Giamberardino**.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#programma" class="w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-bold bg-gradient-hyper text-white shadow-xl hover:shadow-pink-500/20 hover:scale-105 transition-all text-center">
+                    Scopri il Programma <i class="fa-solid fa-arrow-down ml-2"></i>
+                </a>
+                <a href="#qrcode" class="w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-bold glass-panel text-white hover:bg-slate-800 transition-all text-center">
+                    QR Code Sito <i class="fa-solid fa-qrcode ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="py-12 bg-slate-900/50 border-y border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-2">
+                <i class="fa-solid fa-clock text-pink-500 mr-2"></i> IL CONTO ALLA ROVESCIA È INIZIATO
+            </h2>
+            <p class="text-slate-400 text-sm mb-8">Si vota il **27 Ottobre** alle **09:30**. Fai sentire la tua voce!</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-panel p-4 rounded-2xl border-purple-500/30">
+                    <span id="cd-days" class="font-heading text-4xl sm:text-6xl font-black text-white">00</span>
+                    <span class="block text-xs uppercase tracking-wider text-slate-400 mt-1">Giorni</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl border-purple-500/30">
+                    <span id="cd-hours" class="font-heading text-4xl sm:text-6xl font-black text-pink-500">00</span>
+                    <span class="block text-xs uppercase tracking-wider text-slate-400 mt-1">Ore</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl border-purple-500/30">
+                    <span id="cd-minutes" class="font-heading text-4xl sm:text-6xl font-black text-purple-400">00</span>
+                    <span class="block text-xs uppercase tracking-wider text-slate-400 mt-1">Minuti</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl border-purple-500/30">
+                    <span id="cd-seconds" class="font-heading text-4xl sm:text-6xl font-black text-cyan-400">00</span>
+                    <span class="block text-xs uppercase tracking-wider text-slate-400 mt-1">Secondi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programma ed Eventi Section -->
+    <section id="programma" class="py-20 bg-slate-900/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl sm:text-5xl font-black mb-4">PUNTI CHIAVE & EVENTI</h2>
+                <p class="text-slate-400 max-w-xl mx-auto">Cosa realizzeremo insieme durante questo anno scolastico.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Evento 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-purple-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Pranzi d'Istituto</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Organizzazione di grandi pranzi sociali con musica, street food e momenti di festa per rafforzare la community della scuola.
+                    </p>
+                </div>
+
+                <!-- Evento 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-pink-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Veglioni & Feste</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Veglioni memorabili d'Istituto per Natale, Carnevale e fine anno scolastico in location ufficiali con prevendite dedicate.
+                    </p>
+                </div>
+
+                <!-- Evento 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Assemblee con Ospiti</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Inviteremo creator, professionisti e ospiti speciali per dibattiti utili, attuali e dinamici durante le assemblee mensili.
+                    </p>
+                </div>
+
+                <!-- Punto Extra 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Wi-Fi & Aule Relax</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Potenziamento della connessione internet scolastica e allestimento di aule ricreative per gli intervalli e la pausa studio.
+                    </p>
+                </div>
+
+                <!-- Punto Extra 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Tornei Sportivi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Campionati interclasse di Calcetto, Pallavolo e Gaming per sfidare le altre classi con fantastici premi in palio.
+                    </p>
+                </div>
+
+                <!-- Punto Extra 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Ascolto Diretto</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Un canale di comunicazione riservato tra gli studenti, Leonardo Cesari e Sara Giamberardino per risposte rapide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modulo di Suggerimento / Richiesta -->
+    <section id="suggerisci" class="py-20 relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-heading text-4xl sm:text-5xl font-black mb-4 text-gradient">COSA VORRESTI NELLA TUA SCUOLA?</h2>
+                <p class="text-slate-300">Invia la tua proposta o richiesta direttamente a Leonardo e Sara. La tua voce è il punto di partenza della Lista HYPER.</p>
+            </div>
+
+            <!-- Form Pulito ed Elegante -->
+            <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-purple-500/30 relative overflow-hidden shadow-2xl">
+                <form id="suggestion-form" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Il tuo Nome o Classe (Opzionale)</label>
+                            <input type="text" id="sug-author" placeholder="Es. Marco 4A o Anonimo" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Ambito della Richiesta</label>
+                            <select id="sug-category" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                                <option value="Eventi & Feste">🎉 Eventi, Pranzi & Veglioni</option>
+                                <option value="Assemblee">🎤 Ospiti & Assemblee</option>
+                                <option value="Struttura & Wi-Fi">🏫 Struttura & Connessione</option>
+                                <option value="Sport & Tornei">🏆 Sport & Attività</option>
+                                <option value="Altro">💡 Altro suggerimento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Descrivi la tua idea o esigenza *</label>
+                        <textarea id="sug-text" rows="4" required placeholder="Scrivi qui cosa vorresti migliorare o vedere organizzato nella scuola..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl font-bold bg-gradient-hyper text-white text-lg shadow-lg hover:shadow-pink-500/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2">
+                        <span>Invia Suggerimento</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <!-- Box Messaggio di Successo -->
+                <div id="success-message" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center mx-auto text-3xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold text-white">Grazie per il tuo contributo!</h3>
+                    <p class="text-slate-300 text-sm max-w-md mx-auto">La tua richiesta è stata registrata ed inviata a **Leonardo Cesari** e **Sara Giamberardino** per arricchire il programma di Lista HYPER.</p>
+                    <button onclick="resetForm()" class="px-6 py-2.5 rounded-xl bg-slate-800 text-xs font-bold text-slate-300 hover:bg-slate-700 transition-all mt-4">
+                        Invia un'altra proposta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section QR Code -->
+    <section id="qrcode" class="py-20 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl sm:text-4xl font-black mb-4">CONDIVIDI CON GLI AMICI</h2>
+            <p class="text-slate-400 max-w-md mx-auto mb-8">Scansiona il QR Code con la fotocamera del telefono per aprire direttamente il sito della **Lista HYPER**!</p>
+            
+            <div class="glass-panel p-8 rounded-3xl inline-block border border-pink-500/30 glow-effect mb-6">
+                <div id="qrcode-canvas" class="p-4 bg-white rounded-2xl flex justify-center items-center"></div>
+                <p class="text-xs text-slate-400 mt-4 font-mono">lista-hyper.it</p>
+            </div>
+
+            <div class="flex justify-center">
+                <button onclick="copyCurrentUrl()" class="px-6 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold hover:bg-slate-700 transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Copia Link del Sito</span>
+                </button>
+            </div>
+            
+            <!-- Toast Notifica -->
+            <div id="toast" class="fixed bottom-6 right-6 bg-pink-600 text-white font-bold px-4 py-3 rounded-xl shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+                Link copiato negli appunti!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">Campagna elettorale per **Leonardo Cesari** e **Sara Giamberardino**</p>
+            <p class="font-heading font-bold text-gradient text-lg">LISTA HYPER 2026</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 1. COUNTDOWN SCRIPT (Target: 27 Ottobre 2026 alle 09:30)
+        const targetDate = new Date('2026-10-27T09:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('cd-days').innerText = '00';
+                document.getElementById('cd-hours').innerText = '00';
+                document.getElementById('cd-minutes').innerText = '00';
+                document.getElementById('cd-seconds').innerText = '00';
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 2. GENERATORE QR CODE DINAMICO
+        window.addEventListener('DOMContentLoaded', () => {
+            const qrContainer = document.getElementById('qrcode-canvas');
+            const currentUrl = window.location.href.startsWith('http') ? window.location.href : 'https://lista-hyper.it';
+            
+            new QRCode(qrContainer, {
+                text: currentUrl,
+                width: 180,
+                height: 180,
+                colorDark : "#0f172a",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+
+        // Copy Link Helper
+        function copyCurrentUrl() {
+            const url = window.location.href;
+            const tempInput = document.createElement('input');
+            document.body.appendChild(tempInput);
+            tempInput.value = url;
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // 3. GESTIONE FORM SUGGERIMENTI
+        document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = document.getElementById('sug-text').value.trim();
+            if (!text) return;
+
+            // Mostra animazione di successo
+            document.getElementById('suggestion-form').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+        });
+
+        function resetForm() {
+            document.getElementById('sug-text').value = '';
+            document.getElementById('sug-author').value = '';
+            document.getElementById('suggestion-form').classList.remove('hidden');
+            document.getElementById('success-message').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
