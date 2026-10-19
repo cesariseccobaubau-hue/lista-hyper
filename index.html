@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista HYPER - Vota Leonardo Cesari & Sara Giamberardino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #030712; color: #f3f4f6; }
+        .neon-glow { text-shadow: 0 0 20px rgba(168, 85, 247, 0.6); }
+        .neon-box { box-shadow: 0 0 25px rgba(168, 85, 247, 0.25); border: 1px solid rgba(168, 85, 247, 0.4); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <header class="bg-gray-900/80 backdrop-blur border-b border-purple-900/50 sticky top-0 z-50 py-4 px-6 text-center">
+        <h1 class="text-2xl font-bold tracking-wider text-purple-400 neon-glow">LISTA HYPER ⚡</h1>
+        <p class="text-xs text-gray-400 mt-1">Elezioni d'Istituto</p>
+    </header>
+
+    <main class="max-w-xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+        <div class="text-center space-y-2">
+            <div class="inline-block bg-purple-950/80 border border-purple-500/50 text-purple-300 text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 font-semibold">I Tuoi Rappresentanti</div>
+            <h2 class="text-3xl font-extrabold text-white">LEONARDO CESARI <span class="text-purple-400">&</span> SARA GIAMBERARDINO</h2>
+            <p class="text-gray-400 text-sm">Pronti a svoltare la scuola con energia pura, eventi epici e innovazione.</p>
+        </div>
+
+        <div class="neon-box bg-gray-900/90 rounded-2xl p-6 text-center space-y-4">
+            <h3 class="text-lg font-bold text-purple-300">⏳ CONTO ALLA ROVESCIA ALLE VOTAZIONI</h3>
+            <div id="countdown" class="grid grid-cols-4 gap-2 text-white">
+                <div class="bg-gray-800/80 p-3 rounded-xl border border-purple-500/20"><span id="days" class="text-2xl font-bold block text-purple-400">00</span><span class="text-[10px] text-gray-400">Giorni</span></div>
+                <div class="bg-gray-800/80 p-3 rounded-xl border border-purple-500/20"><span id="hours" class="text-2xl font-bold block text-purple-400">00</span><span class="text-[10px] text-gray-400">Ore</span></div>
+                <div class="bg-gray-800/80 p-3 rounded-xl border border-purple-500/20"><span id="minutes" class="text-2xl font-bold block text-purple-400">00</span><span class="text-[10px] text-gray-400">Minuti</span></div>
+                <div class="bg-gray-800/80 p-3 rounded-xl border border-purple-500/20"><span id="seconds" class="text-2xl font-bold block text-purple-400">00</span><span class="text-[10px] text-gray-400">Secondi</span></div>
+            </div>
+            <p class="text-xs text-purple-300/80 pt-1">📅 27 Ottobre alle ore 09:30</p>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="text-xl font-bold text-white border-l-4 border-purple-500 pl-3">Programma & Eventi</h3>
+            <div class="grid gap-3">
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-purple-900/30 flex items-center space-x-4">
+                    <span class="text-2xl">🍽️</span>
+                    <div><h4 class="font-bold text-white text-sm">Pranzi d'Istituto</h4><p class="text-xs text-gray-400">Momenti di condivisione e cibo di qualità per tutti.</p></div>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-purple-900/30 flex items-center space-x-4">
+                    <span class="text-2xl">🪩</span>
+                    <div><h4 class="font-bold text-white text-sm">Veglioni e feste</h4><p class="text-xs text-gray-400">Eventi memorabili per vivere la scuola anche fuori dalle lezioni.</p></div>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-purple-900/30 flex items-center space-x-4">
+                    <span class="text-2xl">🎤</span>
+                    <div><h4 class="font-bold text-white text-sm">Assemblee con Ospiti</h4><p class="text-xs text-gray-400">Incontri formativi e stimolanti con personalità di spicco.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="neon-box bg-gray-900/90 rounded-2xl p-6 text-center space-y-4">
+            <h3 class="text-md font-bold text-purple-300">📱 Generatore QR Code del Sito</h3>
+            <p class="text-xs text-gray-400">Incolla qui sotto il link esatto del tuo sito GitHub Pages per generare il QR code funzionante:</p>
+            <input type="text" id="siteUrlInput" placeholder="https://tuo-username.github.io/lista-hyper/" class="w-full bg-gray-950 border border-purple-500/40 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-purple-400">
+            <button onclick="generateQR()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-xl text-xs transition duration-200">Aggiorna e Genera QR</button>
+            <div id="qrcode" class="flex justify-center py-2"></div>
+        </div>
+
+        <div class="neon-box bg-gray-900/90 rounded-2xl p-6 space-y-4">
+            <h3 class="text-lg font-bold text-purple-300 text-center">💡 Cosa vorresti nella tua scuola?</h3>
+            <form onsubmit="handleForm(event)" class="space-y-3">
+                <textarea id="ideaText" rows="3" placeholder="Scrivi qui la tua proposta o miglioria..." required class="w-full bg-gray-950 border border-purple-500/40 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-purple-400"></textarea>
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2.5 rounded-xl text-sm transition">Invia Proposta</button>
+                <p id="formMsg" class="text-xs text-center text-green-400 hidden">✅ Proposta inviata con successo ai rappresentanti!</p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-purple-900/30">
+        Lista HYPER - Elezioni Scolastiche 2026 ⚡
+    </footer>
+
+    <script>
+        const targetDate = new Date("October 27, 2026 09:30:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if (distance > 0) {
+                document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60 * 1000))).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
+        }, 1000);
+
+        function generateQR() {
+            const url = document.getElementById('siteUrlInput').value.trim();
+            const container = document.getElementById('qrcode');
+            container.innerHTML = "";
+            if (url) {
+                new QRCode(container, { text: url, width: 140, height: 140, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });
+            }
+        }
+
+        function handleForm(e) {
+            e.preventDefault();
+            document.getElementById('ideaText').value = '';
+            const msg = document.getElementById('formMsg');
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 4000);
+        }
+
+        if(window.location.hostname.includes('github.io')) {
+            document.getElementById('siteUrlInput').value = window.location.href;
+            generateQR();
+        }
+    </script>
+</body>
+</html>
